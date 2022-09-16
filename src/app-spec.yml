@@ -1,0 +1,14 @@
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:us-east-1:678878256416:task-defination/datascience-taskdef:4"
+        LoadBalancerInfo: 
+          ContainerName: "dsapi" 
+          ContainerPort: 80
+# Optional properties
+        NetworkConfiguration:
+          AwsvpcConfiguration:
+            Subnets: ["subnet-02899de735f882bc1","subnet-0ae1327ab6b1053d3"] 
+            SecurityGroups: ["sg-0a805aa626d35acad"] 
+            AssignPublicIp: "ENABLED"
